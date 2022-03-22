@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(212, 45%, 89%);
+  --grayish-blue: hsl(220, 15%, 55%);
+  --dark-blue: hsl(218, 44%, 22%);
+
+  --regular: 400;
+  --bold: 700;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-gray);
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: var(--regular);
+
+  // Center card on body
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.card {
+  width: 320px;
+  padding: 1em;
+  background-color: var(--white);
+  border-radius: 20px;
+  // offset-x | offset-y | blur-radius | spread-radius | color
+  box-shadow: 0px 5px 15px 10px rgb(123, 135, 157, 0.1);
+
+  &__header {
+    animation: qrRotateFadeIn 1.5s;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  &__body {
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.2em 1em 1.5em;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: var(--bold);
+    color: var(--dark-blue);
+
+    opacity: 0;
+    animation: fadeIn 2s;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+  }
+
+  &__description {
+    margin-top: 1em;
+    color: var(--grayish-blue);
+
+    opacity: 0;
+    animation: fadeIn 2s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes qrRotateFadeIn{
+  0% {
+    opacity: 0;
+    transform: scale(1.1) rotate(25deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+
+
+.attribution {
+  position: absolute;
+  background: white;
+  width: 200px;
+  bottom: 0;
+  right: 0;
+  padding: 1em;
+  border-top-left-radius: 5px;
+  font-size: 0.7rem;
+  text-align: left;
+  color: hsl(228, 45%, 44%);
+}
